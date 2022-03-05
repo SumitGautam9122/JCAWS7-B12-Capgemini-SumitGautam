@@ -1,0 +1,32 @@
+Q.07 Answer: Aarushi
+	     15
+
+Q.08 Answer: Set 1: [A, B, C, D]
+	     Set 2: [E]
+	     Set 3: [A, B, C, D, E]
+	     Set 4: [A, B, C]
+
+Q.10 Answer: Option A. Error, 2
+
+Q.14 Answer: Option B. beacause when we call notify() on a monitor, we have no control over which thread gets notified.
+
+Q.15 Answer: Option B. The event listner should hand off long tasks to another thread
+
+Q.16 Answer: Option C. The program does not compile because this cannot be referenced in a static method.	
+
+Q.17 Answer: 123112233
+
+Q.18 Answer: Option B. Creating a Statement Object.
+
+Q.19 Answer:  // Get warnings risen while connecting to the database
+  	       SQLWarning connectionWarning = connection.getWarnings();
+ 	     // Get warnings risen while using the statement
+  	       SQLWarning statementWarning = statement.getWarnings();
+	    // Get warnings on the current row of the result set
+	       SQLWarning resultsetWarning = resultSet.getWarnings();
+
+Q.22 Answer: Option C. Only 2 and 3
+
+Q.24 Answer: Option A. @SessionScoped
+
+Q.25 Answer: Option D. Configuration helps to define a minimum set of class libraries for a broad range od devices, and profile helps to define a set of APIs for a specific family of devices.

@@ -1,0 +1,78 @@
+Use HR database for below queries
+1. WAQ to display second highest salary in HR schema.
+
+Answer: 
+postgres=# select max(salary) from employees where salary < (select max(salary) from employees);
+   max
+----------
+ 17000.00
+(1 row)
+
+
+
+2. WAQ to display name of employee who is earning maximum in his/her department.
+
+Answer: 
+postgres=# select first_name,department_id,salary from employees e where salary = 
+(select max(salary) from employees where department_id=e.department_id);
+
+ first_name | department_id |  salary
+------------+---------------+----------
+ Steven     |            90 | 24000.00
+ Alexander  |            60 |  9000.00
+ Nancy      |           100 | 12000.00
+ Den        |            30 | 11000.00
+ Adam       |            50 |  8200.00
+ John       |            80 | 14000.00
+ Jennifer   |            10 |  4400.00
+ Michael    |            20 | 13000.00
+ Susan      |            40 |  6500.00
+ Hermann    |            70 | 10000.00
+ Shelley    |           110 | 12000.00
+(11 rows)
+
+
+3. WAQ to display employees count who are working from same location.
+
+Answer: 
+postgres=# select l.city,count(e.department_id) as employees from locations l, departments d, employees e where 
+e.department_id = d.department_id and d.location_id = l.location_id group by city;
+
+        city         | employees
+---------------------+-----------
+ Southlake           |         5
+ London              |         1
+ South San Francisco |        45
+ Toronto             |         2
+ Seattle             |        18
+ Oxford              |        34
+ Munich              |         1
+(7 rows)
+
+
+4. WAQ to display number of employees joined year wise.
+
+Answer: 
+postgres=# select to_char(hire_date,'yyyy') as year,count(employee_id) as employee from employees group by to_char(hire_date, 'yyyy');
+
+ year | employee
+------+----------
+ 1996 |       10
+ 1990 |        1
+ 2000 |       11
+ 1994 |        7
+ 1987 |        2
+ 1993 |        1
+ 1997 |       28
+ 1991 |        1
+ 1989 |        1
+ 1998 |       23
+ 1995 |        4
+ 1999 |       18
+(12 rows)
+
+
+5. WAQ to top 2 earning employee name and salary in each department. 
+
+Answer: 
+
